@@ -5,7 +5,8 @@ const handleRegister = (req, res, database, bcrypt, saltRounds) => {
     password.length >= 8 && password.length <= 100,
     email.length >= 8 && email.length <= 100,
   ];
-  if (conditionsArr.indexOf(false)) {
+
+  if (conditionsArr.indexOf(false) === -1) {
     // Password hashing
     const hash = bcrypt.hashSync(password, saltRounds);
     database.transaction((trx) => {
