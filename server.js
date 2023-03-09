@@ -31,10 +31,7 @@ console.log(
 
 // --- Accessing base URL ---
 app.get("/", (req, res) => {
-  database
-    .select("*")
-    .from("users")
-    .then((data) => res.send(data));
+  res.send("Congratulation for getting started.")
 });
 
 // --- User sign-in ---
